@@ -1,0 +1,93 @@
+module app_${appName}
+
+open IoTBottomUp as base
+
+<#list appCapabilities as cap>
+open cap_${cap.id}
+</#list>
+
+lone sig app_${appName} extends IoTApp {
+  <#list appProperties as prp>
+  <#-- // prp.cardinality:
+  //   <nothing> => one
+  //   optional  => lone
+  //   multiple  => some
+  //   <both>    => set -->
+  
+  ${prp.name} : ${prp.cardinality} ${prp.type},
+  </#list>
+} {
+  rules = r
+  ${allCap}
+}
+
+one sig cap_state extends Capability {} {
+  attributes = cap_state_attr
+}
+abstract sig cap_state_attr extends Attribute {}
+
+
+<#list stateAttrValues?keys as groupKey>
+
+one sig cap_state_attr_${groupKey} extends cap_state_attr {} {
+  values = cap_state_attr_${groupKey}_val
+}
+
+abstract sig cap_state_attr_${groupKey}_val extends AttrValue {}
+<#list stateAttrValues[groupKey] as item>
+one sig cap_state_attr_${groupKey}_val_${item} extends cap_state_attr_${groupKey}_val {}
+</#list>
+</#list>
+
+<#list ranges as r>
+one sig ${r.range} extends cap_${r.capabilities}_attr_${r.attribute}_val {}
+</#list>
+
+// application rules base class
+
+<#list triggers?keys as groupKey>
+one sig r${groupKey} extends r {}{
+  triggers   = r${groupKey}_trig
+  conditions = r${groupKey}_cond
+  commands   = r${groupKey}_comm
+}
+
+abstract sig r${groupKey}_trig extends Trigger {}
+
+<#list triggers[groupKey] as trig>
+one sig r${groupKey}_trig${trig?index} extends r${groupKey}_trig {} {
+  capabilities = app_${appName}.${trig.obj}
+  attribute    = cap_${trig.capabilities}_attr_${trig.attribute}
+  value        = cap_${trig.capabilities}_attr_${trig.attribute}_val_${trig.value}
+}
+</#list>
+
+
+abstract sig r${groupKey}_cond extends Condition {}
+
+<#list conditions[groupKey] as cond>
+one sig r${groupKey}_cond${cond?index} extends r${groupKey}_cond {} {
+  capabilities = app_${appName}.${cond.obj}
+  attribute    = cap_${cond.capabilities}_attr_${cond.attribute}
+  <#assign x = cond.neg>
+  <#if x == "1">
+  value        = not cap_${cond.capabilities}_attr_${cond.attribute}_val_${cond.value}
+  <#else>
+  value        = cap_${cond.capabilities}_attr_${cond.attribute}_val_${cond.value}
+  </#if>  
+}
+</#list>
+
+abstract sig r${groupKey}_comm extends Command {}
+
+<#list commands[groupKey] as comm>
+one sig r${groupKey}_comm${comm?index} extends r${groupKey}_comm {} {
+  capability   = app_${appName}.${comm.capabilities}
+  attribute    = cap_${comm.capabilities}_attr_${comm.attribute}
+  value        = cap_${comm.capabilities}_attr_${comm.attribute}_val_${comm.value}
+}
+</#list>
+
+</#list>
+
+

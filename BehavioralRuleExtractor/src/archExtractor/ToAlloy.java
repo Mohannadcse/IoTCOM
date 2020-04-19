@@ -71,19 +71,21 @@ public class ToAlloy extends CompilationCustomizer {
 		inputTypes = new HashSet<>();
 		containOR = new HashSet<>();
 		project_root = System.getProperty("user.dir");
-		rulesWriter = new PrintWriter(new File("rulePerApp.csv"));
+		rulesWriter = new PrintWriter(new File("output/rulePerApp.csv"));
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
-		// String project_root = "/Users/think/eclipse-workspace/IoTCheck/";
 		// String allCapsFile = project_root + "/" + "capfull.csv";
 		// File allCapsAll = new File(allCapsFile);
+		
 		ToAlloy ta = new ToAlloy();
 		ParseIFTTT p = new ParseIFTTT();
 		System.out.println("Parse ST Capability Reference JSON file...");
 		String project_root = System.getProperty("user.dir");
 		System.out.println("project_root:: "+project_root);
 		parseCapabilityRefJson(project_root);
+		
+		
 //		p.generateIFTTT_Rules();
 		// loadCapRefAll(allCapsAll, project_root);
 		
@@ -91,6 +93,8 @@ public class ToAlloy extends CompilationCustomizer {
 		final long start = System.nanoTime();
 		loadIoTApp(ta, project_root);
 		final long end = System.nanoTime();
+		
+		
 		System.out.println("Took: " + ((end - start) / 1000000.0) + "ms");
 		System.out.println("Took: " + (end - start)/ 1000000000.0 + " seconds");
 		
@@ -110,7 +114,7 @@ public class ToAlloy extends CompilationCustomizer {
 		String outDirIFTTT = project_root + "/IFTTT_App_Instances";
 		try {
 			System.out.println("Create App Template...");
-			confg = getConfigurationInstance(project_root + "/Input/templates");
+			confg = getConfigurationInstance(project_root + "/input/templates");
 			generateAppTemplateIFTTT(pi.generateIFTTT_Rules(), outDirIFTTT);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -129,19 +133,14 @@ public class ToAlloy extends CompilationCustomizer {
 
 	public static void loadIoTApp(ToAlloy ta, String project_root) throws IOException {
 		// String allCapsFile = project_root + "/" + "capfull.csv";
-		String manualAnalysesReflection = project_root + "/" + "skip_apps_reflection_falsepos.txt";
+		String manualAnalysesReflection = project_root + "/input/" + "skip_apps_reflection_falsepos.txt";
 
 		File iotApp;
 		// File allCapsAll = new File(allCapsFile);
 
-		String smartAppPath = project_root + "/Input/analyzedAndnotAnalyzed/";
-		String motvApps = project_root + "/Input/MtvCode/"; //"/Input/dataset/Soteria/Bench/";
-		String benchApps = project_root + "/Input/dataset/Soteria/";
-		
-		String newBenchApps = "/Users/think/eclipse-workspace/IoTSan/input/intersectionApps/25";
-				//"/Users/think/Downloads/SmartThings/IoTAlloy/incremental-iot/MaliciousInteractionsIoTApps/GroupOfApps/G1";
+		String smartAppPath = project_root + "/input/sampleGroovyApps/";
 
-		File smartAppFoler = new File(newBenchApps);
+		File smartAppFoler = new File(smartAppPath);
 
 		List<String> reflectionSkip = new ArrayList<String>();
 
@@ -168,13 +167,13 @@ public class ToAlloy extends CompilationCustomizer {
 //		appName = "TimeDependentDoors.txt.groovy";
 		
 		//iotApp = new File(project_root + "temp/" + appName);
-		PrintWriter writer = new PrintWriter(new File("AnalysisTime_ST.csv"));
+		PrintWriter writer = new PrintWriter(new File("output/AnalysisTime_ST.csv"));
 				
 		for (String f : fullList) {
 			appName = f;
 			System.out.println("\n\n" + ++appNo + "__" + f);
 			if (!reflectionSkip.contains(fullList)) {
-				iotApp = new File(newBenchApps + "/" + f);
+				iotApp = new File(smartAppPath + "/" + f);
 				final long start = System.nanoTime();
 				try {
 					gShell.evaluate(iotApp);
@@ -204,7 +203,7 @@ public class ToAlloy extends CompilationCustomizer {
 		String[] changeSettingSinks = new String[] { "setLocationMode" }; // subscribeToCommand()
 		JSONParser parser = new JSONParser();
 
-		Object obj = parser.parse(new FileReader(project_root+"/Input/capabilities.json"));
+		Object obj = parser.parse(new FileReader(project_root+"/input/capabilities.json"));
 
 		JSONArray jArray = (JSONArray) obj;
 
@@ -395,17 +394,17 @@ public class ToAlloy extends CompilationCustomizer {
 		String outDir = project_root+"/Output";
 		String outDirMotv = project_root+"/MotivationSnip";
 		String outDirBench = project_root + "/out_bench";
-//		String outNewBenchApps = project_root + "/newBenchTemplates/";
-		String outNewBenchApps = project_root + "/ALL_APPS/";
+		String outNewBenchApps = project_root + "/output/sampleApps/";
 		try {
 			System.out.println("Create App Template...");
-			confg = getConfigurationInstance(project_root+"/Input/templates");
-			//			System.out.println("Number of Rules:: "+ cr.getRulesNew().size());
+			confg = getConfigurationInstance(project_root+"/input/templates");
+			//			System.out.println("Number of Rules: "+ cr.getRulesNew().size());
 			String s = String.format("%s,%d", appName,cr.getRulesNew().size());
 			StringBuilder sb = new StringBuilder();
 		    sb.append(s+"\n");
 		    rulesWriter.write(sb.toString());
 			if (cr.getRulesNew().size() != 0) {
+				System.out.println("OutDIr= "+ outNewBenchApps);
 				generateAppTemplate(appName, outNewBenchApps, iv.getDeviceCap(), cr.getSpecialCapLst(), cr.getRulesNew(),
 						cv.generateNumericRange(), iv.getAppVarToCapUsrFull(), cr.getUsedUserInputInPred(),
 						cr.getAppTouch(), cr.getNowValues()); //cv.getSpecialCapTuple()
@@ -490,6 +489,10 @@ public class ToAlloy extends CompilationCustomizer {
 			writeOutput(root, outputFolder, "app", r, "IFTTT");
 		}
 	}
+	
+//	generateAppTemplate(appName, outNewBenchApps, iv.getDeviceCap(), cr.getSpecialCapLst(), cr.getRulesNew(),
+//			cv.generateNumericRange(), iv.getAppVarToCapUsrFull(), cr.getUsedUserInputInPred(),
+//			cr.getAppTouch(), cr.getNowValues());
 
 	private static void generateAppTemplate(String appName, String outputFolder,
 			List<Quartet<String, String, String, String>> devCap, List<Triplet<String, String, String>> specCap,
@@ -889,6 +892,7 @@ public class ToAlloy extends CompilationCustomizer {
 			FileWriter writer = new FileWriter(new File(outputDir, outputFile + ".als"));
 			template.process(root, writer);
 		} else {
+			System.out.println("Template dir:: "+ templateFile);
 			Template template = confg.getTemplate(templateFile + ".ftl");
 			FileWriter writer = new FileWriter(new File(outputDir, outputFile + ".als"));
 			template.process(root, writer);
