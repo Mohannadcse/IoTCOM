@@ -21,7 +21,7 @@ IoTCOM comprises two components:
 To use this component: 
 
 1. Create an Eclipse project and clone this repository (you can find the instructions [here](https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse)).
-  - Add all libraries (.jar files) in the "IoTCOM_BehavioralRuleExtractor/lib" folder.
+  - Add all libraries (.jar files) in the `BehavioralRuleExtractor/lib` folder.
 
 2. Run the "ToAlloy.java" as "Java Application". Put the Goovy apps inside the directory `input/sampleGroovyApps`. More Groovy apps can be obtained from [SmartThings Public GitHub Repo](https://github.com/SmartThingsCommunity/SmartThingsPublic).  The resulting Alloy models (.als files) will be generated and stored in `/IoTCOM/IoTCOM_BehavioralRuleExtractor/output/sampleApps`. The models that are generatd using our tool are in the directory `Dataset_RealWorldApps`
 
