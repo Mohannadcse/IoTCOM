@@ -21,6 +21,10 @@ IoTCOM comprises two components:
 To use this component: 
 
 1. Create an Eclipse project and clone this repository (you can find the instructions [here](https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-import-a-GitHub-project-into-Eclipse)).
-  - Add all libraries (.jar files) in the "IoTCOM_StaticAnalysis/lib" folder.
+  - Add all libraries (.jar files) in the "IoTCOM_BehavioralRuleExtractor/lib" folder.
 
-2. Run the "IotSan.java" as "Java Application". The resulting Alloy models (.als files) will be generated and stored at ".../IoTCOM_StaticAnalysis/output/". The models that are generatd using our tool are in the directory `Dataset_RealWorldApps`
+2. Run the "IotSan.java" as "Java Application". The resulting Alloy models (.als files) will be generated and stored at "/IoTCOM/IoTCOM_BehavioralRuleExtractor/output/". The models that are generatd using our tool are in the directory `Dataset_RealWorldApps`
+
+
+# IoTCOM_Formal Analyzer
+
