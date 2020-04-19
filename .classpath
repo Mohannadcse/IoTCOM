@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/javatuples-1.1.jar"/>
-	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/apache-freemarker-2.3.28-bin/freemarker.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/json-simple-1.1.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/GraphStream/gs-algo-1.3/gs-algo-1.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/GraphStream/gs-algo-1.3/gs-algo-1.3.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/GraphStream/gs-core-1.3/gs-core-1.3-javadoc.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/GraphStream/gs-core-1.3/gs-core-1.3.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/GraphStream/gs-ui-1.3/gs-ui-1.3.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/groovy-3.0.0-alpha-3/lib/groovy-3.0.0-alpha-3.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/curvesapi-1.04.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/poi-3.16.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/poi-excelant-3.16.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/poi-ooxml-3.16.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/poi-ooxml-schemas-3.16.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/poi-scratchpad-3.16.jar"/>
-	<classpathentry kind="lib" path="/Users/think/Downloads/SmartThings/IoTSan/lib/excel/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="lib/gs-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/javatuples-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/groovy-3.0.3.jar"/>
+	<classpathentry kind="con" path="GROOVY_DSL_SUPPORT"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
