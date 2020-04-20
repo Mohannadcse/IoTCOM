@@ -28,7 +28,12 @@ To use this component:
 
 # IoTCOM_Formal Analyzer
 
+The Formal Analyzer component can be built and run using Gradle. To build an all-in-one jar file using Gradle:
 
+1. Clone the repository.
+1. Change to the `FormalAnalyzer` folder.
+1. Run `./gradlew customFatJar`.
+1. Run `java -jar build/libs/iotcom-all-1.0.0.jar [arguments]`
 
 
 # Citation
