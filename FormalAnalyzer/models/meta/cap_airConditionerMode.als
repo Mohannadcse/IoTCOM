@@ -1,0 +1,23 @@
+
+// filename: cap_airConditionerMode.als
+module cap_airConditionerMode
+open IoTBottomUp
+one sig cap_airConditionerMode extends Capability {}
+{
+    attributes = cap_airConditionerMode_attr
+}
+abstract sig cap_airConditionerMode_attr extends Attribute {}
+one sig cap_airConditionerMode_attr_airConditionerMode extends cap_airConditionerMode_attr {}
+{
+    values = cap_airConditionerMode_attr_airConditionerMode_val
+} 
+abstract sig cap_airConditionerMode_attr_airConditionerMode_val extends AttrValue {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_auto extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_cool extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_dry extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_coolClean extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_dryClean extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_fanOnly extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_heat extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_heatClean extends cap_airConditionerMode_attr_airConditionerMode_val {}
+one sig cap_airConditionerMode_attr_airConditionerMode_val_notSupported extends cap_airConditionerMode_attr_airConditionerMode_val {}

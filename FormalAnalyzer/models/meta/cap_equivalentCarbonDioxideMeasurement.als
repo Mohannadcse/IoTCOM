@@ -1,0 +1,14 @@
+
+// filename: cap_equivalentCarbonDioxideMeasurement.als
+module cap_equivalentCarbonDioxideMeasurement
+open IoTBottomUp
+one sig cap_equivalentCarbonDioxideMeasurement extends Capability {}
+{
+    attributes = cap_equivalentCarbonDioxideMeasurement_attr
+}
+abstract sig cap_equivalentCarbonDioxideMeasurement_attr extends Attribute {}
+one sig cap_equivalentCarbonDioxideMeasurement_attr_equivalentCarbonDioxideMeasurement extends cap_equivalentCarbonDioxideMeasurement_attr {}
+{
+    values = cap_equivalentCarbonDioxideMeasurement_attr_equivalentCarbonDioxideMeasurement_val
+} 
+abstract sig cap_equivalentCarbonDioxideMeasurement_attr_equivalentCarbonDioxideMeasurement_val extends AttrValue {}
