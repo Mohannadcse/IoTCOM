@@ -37,7 +37,7 @@ To build an all-in-one jar file using Gradle:
 1. Run `./gradlew customFatJar`.
 1. Run `java -jar build/libs/iotcom-all-1.0.0.jar [arguments]`
 
-The arguments are described in greater detail in the [`FormalAnalyzer`](FormalAnalyzer/src/main/java/edu/unl/cse/iotcom/FormalAnalyzer.java) Java file. The user can specify a variety of options, such as the directory for app files, the output directory, the size of the generated bundles, etc.
+The arguments are described in greater detail in the [`FormalAnalyzer`](FormalAnalyzer/src/main/java/edu/unl/cse/iotcom/FormalAnalyzer.java#L33-L51) Java file. The user can specify a variety of options, such as the directory for app files, the output directory, the size of the generated bundles, etc.
 
 > :warning: **Running with the defaults will take a _very_ long time.** Specify a value for the `--appsdir` argument on the command line.
 
