@@ -1,0 +1,17 @@
+
+// filename: cap_robotCleanerTurboMode.als
+module cap_robotCleanerTurboMode
+open IoTBottomUp
+one sig cap_robotCleanerTurboMode extends Capability {}
+{
+    attributes = cap_robotCleanerTurboMode_attr
+}
+abstract sig cap_robotCleanerTurboMode_attr extends Attribute {}
+one sig cap_robotCleanerTurboMode_attr_robotCleanerTurboMode extends cap_robotCleanerTurboMode_attr {}
+{
+    values = cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val
+} 
+abstract sig cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val extends AttrValue {}
+one sig cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val_on extends cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val {}
+one sig cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val_off extends cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val {}
+one sig cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val_silence extends cap_robotCleanerTurboMode_attr_robotCleanerTurboMode_val {}
