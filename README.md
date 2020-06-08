@@ -7,6 +7,7 @@ This work is published at *ACM SIGSOFT International Symposium on Software Testi
 
 Here you can find the [draft paper](https://drive.google.com/file/d/1DtnaSgLVQ81HhktsWCMpHMCVZ0nMQAnK/view?usp=sharing)
 
+Here is the [project website](https://sites.google.com/view/iotcom/home)
 
 # IoTCOM Architecture 
 
