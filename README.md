@@ -3,7 +3,10 @@
 
 In this repository you will find the protype code of IoTCOM, a model-checking tool to verify the safety of IoT Apps.
 
-This work is published at *ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA'20)*.
+This work is published at *ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA'20)* and received **ACM SIGSOFT Distinguished Paper Award**. 
+
+Here you can find the [draft paper](https://drive.google.com/file/d/1DtnaSgLVQ81HhktsWCMpHMCVZ0nMQAnK/view?usp=sharing)
+
 
 # IoTCOM Architecture 
 
