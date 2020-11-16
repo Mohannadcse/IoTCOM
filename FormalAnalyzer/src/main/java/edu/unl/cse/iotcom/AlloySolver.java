@@ -41,7 +41,7 @@ public class AlloySolver {
     private static A4Options getDefaultOptions() {
         final A4Options options = new A4Options();
         options.solver = A4Options.SatSolver.SAT4J;
-        options.skolemDepth = 1;
+        options.skolemDepth = 2;
         return options;
     }
 

@@ -568,6 +568,7 @@ assert P17 {
     (some predecessor : r.*(~connected), event : predecessor.triggers {
       // ...or if the user no present
       event.attribute = cap_presenceSensor_attr_presence
+      event.value     = cap_presenceSensor_attr_presence_val_not_present
     })
   }
 }
