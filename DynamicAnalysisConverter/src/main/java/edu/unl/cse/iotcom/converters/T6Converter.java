@@ -13,8 +13,6 @@ import org.w3c.dom.Node;
 
 import com.google.common.collect.Sets;
 import com.google.common.collect.Streams;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import edu.unl.cse.iotcom.ThreatConverter;
 

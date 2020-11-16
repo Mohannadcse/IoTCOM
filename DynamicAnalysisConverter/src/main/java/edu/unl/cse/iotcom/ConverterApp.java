@@ -92,7 +92,7 @@ public class ConverterApp {
 		Document xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(this.filename.toFile());
 		// start by getting the command, which will drive all the rest of the conversion
 		String cmd = xpath.findStr("//instance/@command", xml).replaceAll("Check (\\S*)", "$1");
-		logger.info("threat found: %s", cmd);
+		logger.debug("threat found: %s", cmd);
 		// build a graph of the connected rules
 		Graph<String, DefaultEdge> connected = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 		for (Node tuple : xpath.findAll("//field[@label='connected']/tuple", xml)) {
@@ -105,7 +105,7 @@ public class ConverterApp {
 		}
 		// dispatch based on the command
 		String json = converters.get(cmd).convert(connected, xml);
-		logger.info("finishing conversion: %s", json);
+		logger.debug("finishing conversion: %s", json);
 		return json;
 	}
 }

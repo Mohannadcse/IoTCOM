@@ -24,3 +24,18 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'edu.unl.cse.iotcom.ConverterApp'
+	}
+}
+
+task fat(type: Jar) {
+	manifest {
+		attributes 'Main-Class': 'edu.unl.cse.iotcom.ConverterApp'
+	}
+	baseName = 'iotcom-converter-all'
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
+}
