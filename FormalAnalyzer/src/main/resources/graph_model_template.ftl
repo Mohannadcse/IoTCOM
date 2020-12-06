@@ -707,7 +707,7 @@ assert P25{
     }
     //thermostat
     some cmd': r'.commands {
-      (cmd'.attribute = cap_thermostat_attr_thermostat_val)
+      (cmd'.attribute = cap_thermostat_attr_thermostat)
       //(cmd'.value = cap_switch_attr_switch_val_on)
     }
   }
