@@ -3,4 +3,5 @@
 **/node_modules/
 **/out/
 **/.DS_Store
-/bin/
+**/bin/
+.metadata
