@@ -59,10 +59,7 @@ public class ToAlloy extends CompilationCustomizer {
 
 	public ToAlloy() throws FileNotFoundException {
 		super(CompilePhase.SEMANTIC_ANALYSIS);
-		new HashMap<>();
-		new HashMap<>();
 		allCommandsList = new ArrayList<String>();
-		new ArrayList<String>();
 		allPropsList = new ArrayList<String>();
 		capAttrCmdList = new ArrayList<>();
 		appName = "";
