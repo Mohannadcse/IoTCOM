@@ -391,9 +391,6 @@ public class ToAlloy extends CompilationCustomizer {
 		// Generating template
 		
 		appName = appName.split("\\.")[0];
-		String outDir = project_root+"/Output";
-		String outDirMotv = project_root+"/MotivationSnip";
-		String outDirBench = project_root + "/out_bench";
 		String outNewBenchApps = project_root + "/output/sampleApps/";
 		try {
 			System.out.println("Create App Template...");
