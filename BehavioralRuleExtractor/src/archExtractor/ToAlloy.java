@@ -59,10 +59,7 @@ public class ToAlloy extends CompilationCustomizer {
 
 	public ToAlloy() throws FileNotFoundException {
 		super(CompilePhase.SEMANTIC_ANALYSIS);
-		new HashMap<>();
-		new HashMap<>();
 		allCommandsList = new ArrayList<String>();
-		new ArrayList<String>();
 		allPropsList = new ArrayList<String>();
 		capAttrCmdList = new ArrayList<>();
 		appName = "";
@@ -71,6 +68,9 @@ public class ToAlloy extends CompilationCustomizer {
 		inputTypes = new HashSet<>();
 		containOR = new HashSet<>();
 		project_root = System.getProperty("user.dir");
+		// create output folders
+		File output = new File("output/sampleApps");
+		output.mkdirs();
 		rulesWriter = new PrintWriter(new File("output/rulePerApp.csv"));
 	}
 
@@ -391,9 +391,6 @@ public class ToAlloy extends CompilationCustomizer {
 		// Generating template
 		
 		appName = appName.split("\\.")[0];
-		String outDir = project_root+"/Output";
-		String outDirMotv = project_root+"/MotivationSnip";
-		String outDirBench = project_root + "/out_bench";
 		String outNewBenchApps = project_root + "/output/sampleApps/";
 		try {
 			System.out.println("Create App Template...");

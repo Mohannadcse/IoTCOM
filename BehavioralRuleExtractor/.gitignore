@@ -1,100 +1,61 @@
+.metadata
+output/
+bin/
+tmp/
+*.tmp
+*.bak
 *.swp
-.java-version
-**/node_modules/
-**/out/
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-# Gradle
-# ------
-.gradle
-/tmp
-/logs
-/build
-/buildSrc/build
-/buildSrc/subprojects/*/build
-/subprojects/*/build
-/subprojects/docs/src/samples/**/build
-/subprojects/docs/src/snippets/**/build
-/subprojects/internal-android-performance-testing/build-android-libs
+# External tool builders
+.externalToolBuilders/
 
-# IDEA
-# ----
-!/.idea
-/.idea/*
-!/.idea/codeStyles
-!/.idea/inspectionProfiles
-*/**/.idea
-.shelf
-/*.iml
-/*.ipr
-/*.iws
-/buildSrc/.idea
-/buildSrc/.shelf
-/buildSrc/*.iml
-/buildSrc/*.ipr
-/buildSrc/*.iws
-/buildSrc/out
-/buildSrc/subprojects/*/*.iml
-/buildSrc/subprojects/*/out
-/out
-/subprojects/*/*.iml
-/subprojects/*/out
-/.teamcity/*.iml
-/.teamcity/target
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# Eclipse
-# -------
-*.classpath
-*.project
-*.settings
-/bin
-/subprojects/*/bin
-atlassian-ide-plugin.xml
-.metadata/
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-# NetBeans
-# --------
-.nb-gradle
-.nb-gradle-properties
+# CDT-specific (C/C++ Development Tooling)
+.cproject
 
-# Vim
-# ---
-*.sw[nop]
+# CDT- autotools
+.autotools
 
-# Emacs
-# -----
-*~
-\#*\#
-.\#*
+# Java annotation processor (APT)
+.factorypath
 
-# Textmate
-# --------
-.textmate
+# PDT-specific (PHP Development Tools)
+.buildpath
 
-# Sublime Text
-# ------------
-*.sublime-*
+# sbteclipse plugin
+.target
 
-# jEnv
-# ----
-.java-version
+# Tern plugin
+.tern-project
 
-# macOS
-# ----
-.DS_Store
+# TeXlipse plugin
+.texlipse
 
-# HPROF
-# -----
-*.hprof
+# STS (Spring Tool Suite)
+.springBeans
 
-# Work dirs
-# ---------
-/incoming-distributions
-/intTestHomeDir
+# Code Recommenders
+.recommenders/
 
-# Logs
-# ----
-/*.log
-log/
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
 
-# oh-my-zsh gradle plugin
-.gradletasknamecache
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
+#.project

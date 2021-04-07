@@ -3,6 +3,5 @@
 **/node_modules/
 **/out/
 **/.DS_Store
-/bin/
-/log/
-/.metadata/
+**/bin/
+.metadata
