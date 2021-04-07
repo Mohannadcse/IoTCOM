@@ -68,6 +68,9 @@ public class ToAlloy extends CompilationCustomizer {
 		inputTypes = new HashSet<>();
 		containOR = new HashSet<>();
 		project_root = System.getProperty("user.dir");
+		// create output folders
+		File output = new File("output/sampleApps");
+		output.mkdirs();
 		rulesWriter = new PrintWriter(new File("output/rulePerApp.csv"));
 	}
 
