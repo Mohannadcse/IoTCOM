@@ -568,6 +568,7 @@ assert P17 {
     (some predecessor : r.*(~connected), event : predecessor.triggers {
       // ...or if the user no present
       event.attribute = cap_presenceSensor_attr_presence
+      event.value     = cap_presenceSensor_attr_presence_val_not_present
     })
   }
 }
@@ -706,7 +707,7 @@ assert P25{
     }
     //thermostat
     some cmd': r'.commands {
-      (cmd'.attribute = cap_thermostat_attr_thermostat_val)
+      (cmd'.attribute = cap_thermostat_attr_thermostat)
       //(cmd'.value = cap_switch_attr_switch_val_on)
     }
   }
